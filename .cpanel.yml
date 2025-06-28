@@ -1,0 +1,18 @@
+deployment:
+  tasks:
+    - export NODE_ENV=production
+
+    - cd /home/vibecekf/repositories/vibemotion-api
+
+    - rsync -av --exclude='.git' --exclude='node_modules' --exclude='.cpanel.yml' ./ /home/vibecekf/api.vibemotion.co.uk
+
+    - echo "Activating Node.js environment..."
+    - source /home/vibecekf/nodevenv/api.vibemotion.co.uk/22/bin/activate && cd /home/vibecekf/api.vibemotion.co.uk
+
+    - echo "Installing dependencies..."
+    - npm install --include=dev
+
+    - echo "Restarting node js..."
+    - touch tmp/restart.txt
+
+    - echo "✅ Deployment complete."
