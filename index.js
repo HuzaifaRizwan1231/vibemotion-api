@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Sample route
 app.get('/hello', (req, res) => {
-  res.json({ message: 'Hello from the backend!' });
+  res.json({ message: 'Hello from the updated backend!' });
 });
 
 app.listen(PORT, () => {
